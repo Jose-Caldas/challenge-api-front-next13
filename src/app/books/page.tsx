@@ -2,6 +2,7 @@ import { getAllBooks } from "@/api";
 import React from "react";
 import styles from "./Book.module.css";
 import Link from "next/link";
+import Book from "@/components/Book";
 
 export default async function Books() {
   const books = await getAllBooks();
@@ -12,9 +13,13 @@ export default async function Books() {
         <Link href="/form">Add New book</Link>
       </div>
       {books.map((book) => (
-        <div>
-          <p key={book._id}>{book.title}</p>
-        </div>
+        <Book
+          key={book._id}
+          title={book.title}
+          author={book.author}
+          isbnNumber={book.isbnNumber}
+          _id={book._id}
+        />
       ))}
     </div>
   );
