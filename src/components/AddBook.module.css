@@ -1,0 +1,12 @@
+.btn {
+  background-color: tomato;
+  color: #fff;
+  border: none;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.btn svg {
+  margin-left: 1rem;
+}
