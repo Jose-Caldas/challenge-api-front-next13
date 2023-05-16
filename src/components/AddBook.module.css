@@ -1,12 +1,32 @@
-.btn {
-  background-color: tomato;
-  color: #fff;
-  border: none;
-  padding: 1rem;
+.addBook_container {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 70%;
 }
 
-.btn svg {
-  margin-left: 1rem;
+.form_container h3 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.form_container label {
+  color: tomato;
+}
+
+.form_container input {
+  width: 100%;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  padding: 1rem 0.5rem;
+  font-size: 1rem;
+  border: none;
+}
+
+.form_container button {
+  border: none;
+  background-color: tomato;
+  color: #fff;
+  padding: 1rem 3rem;
+  border-radius: 4px;
 }

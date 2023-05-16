@@ -7,11 +7,28 @@
 body,
 html {
   background-color: #eee;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 1rem;
+}
+
+.nav_container {
+  background-color: #fff;
+  padding: 1rem;
+  margin-bottom: 2rem;
 }
 
 .nav {
   display: flex;
   list-style: none;
   justify-content: space-around;
+}
+
+.nav li a {
+  text-decoration: none;
+  color: #333;
+  opacity: 0.8;
+}
+.nav li a:hover {
+  opacity: 1;
 }

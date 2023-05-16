@@ -3,6 +3,7 @@ import Modal from "@/components/Modal";
 import { IBook } from "@/types/book";
 import { useRouter } from "next/navigation";
 import React, { FormEventHandler, useState } from "react";
+import styles from "./AddBook.module.css";
 
 interface EditBookProps {
   book: IBook;
@@ -30,7 +31,7 @@ const EditBook = ({ book }: EditBookProps) => {
   };
 
   return (
-    <>
+    <div className={styles.form_container}>
       <form onSubmit={handleSubmit}>
         <h3>Editar Livro</h3>
         <div>
@@ -77,7 +78,7 @@ const EditBook = ({ book }: EditBookProps) => {
         setOpenModal={setOpenModalEdit}
         text="Livro atualizado com sucesso!"
       />
-    </>
+    </div>
   );
 };
 

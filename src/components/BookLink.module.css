@@ -1,0 +1,15 @@
+.link_container {
+  background-color: tomato;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.link_container svg {
+  margin-left: 1rem;
+}

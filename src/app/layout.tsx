@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div>
+        <div className="nav_container">
           <ul className="nav">
             <li>
               <Link href="/">Home</Link>

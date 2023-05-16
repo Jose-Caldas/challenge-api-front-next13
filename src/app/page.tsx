@@ -1,10 +1,11 @@
-import AddBook from "../components/AddBook";
+import BookLink from "../components/BookLink";
+import styles from "./Home.module.css";
 
 export default function Home() {
   return (
-    <main>
-      <h1>Home</h1>
-      <AddBook />
+    <main className={styles.home_container}>
+      <h1>Book List App</h1>
+      <BookLink />
     </main>
   );
 }
