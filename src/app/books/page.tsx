@@ -6,6 +6,7 @@ import Book from "@/components/Book";
 
 export default async function Books() {
   const books = await getAllBooks();
+
   return (
     <div className={styles.book_container}>
       <div className={styles.header}>

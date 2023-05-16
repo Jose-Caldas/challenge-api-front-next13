@@ -4,7 +4,7 @@ import React from "react";
 export default async function Form() {
   return (
     <div>
-      <FormBook />
+      <FormBook formTitle="Add new Book" />
     </div>
   );
 }

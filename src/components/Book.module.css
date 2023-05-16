@@ -10,3 +10,14 @@
   border-radius: 0.5rem;
   padding: 1rem;
 }
+
+.card {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}

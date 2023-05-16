@@ -3,7 +3,11 @@ import React, { FormEventHandler, useState } from "react";
 import Modal from "./Modal";
 import { addBook } from "@/api";
 
-const FormBook = () => {
+type FormBookProps = {
+  formTitle: string;
+};
+
+const FormBook = ({ formTitle }: FormBookProps) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [newTitleValue, setNewTitleValue] = useState<string>("");
   const [newAuthorValue, setNewAuthorValue] = useState<string>("");
@@ -24,7 +28,7 @@ const FormBook = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <h3>Add new book</h3>
+        <h3>{formTitle}</h3>
         <div>
           <div>
             <label htmlFor="title">Title:</label>

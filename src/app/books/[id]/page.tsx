@@ -1,4 +1,8 @@
-import React from "react";
+"use client";
+import { getAllBooks } from "@/api";
+import FormBook from "@/components/FormBook";
+import { IBook } from "@/types/book";
+import React, { useState } from "react";
 
 interface BookProps {
   params: {
@@ -6,12 +10,16 @@ interface BookProps {
   };
 }
 
-function Book({ params }: BookProps) {
+export default async function editBookPage({ params }: BookProps) {
+  const books = await getAllBooks();
+  const result = books.filter((book) => book._id === params.id);
+
   return (
     <div>
-      <h1>Book: {params.id}</h1>
+      {result.map((r) => (
+        <p key={r._id}>{r.title}</p>
+      ))}
+      <FormBook formTitle="Edit book" />
     </div>
   );
 }
-
-export default Book;
