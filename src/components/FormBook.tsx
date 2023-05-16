@@ -2,12 +2,14 @@
 import React, { FormEventHandler, useState } from "react";
 import Modal from "./Modal";
 import { addBook } from "@/api";
+import { useRouter } from "next/navigation";
 
 type FormBookProps = {
   formTitle: string;
 };
 
 const FormBook = ({ formTitle }: FormBookProps) => {
+  const router = useRouter();
   const [modalOpen, setModalOpen] = useState(false);
   const [newTitleValue, setNewTitleValue] = useState<string>("");
   const [newAuthorValue, setNewAuthorValue] = useState<string>("");
@@ -23,6 +25,7 @@ const FormBook = ({ formTitle }: FormBookProps) => {
     setNewTitleValue("");
     setNewAuthorValue("");
     setNewIsbnValue("");
+    router.refresh();
   };
 
   return (
@@ -66,7 +69,11 @@ const FormBook = ({ formTitle }: FormBookProps) => {
         </div>
         <button onClick={() => setModalOpen(true)}>Adicionar</button>
       </form>
-      <Modal modalOpen={modalOpen} setOpenModal={setModalOpen} />
+      <Modal
+        modalOpen={modalOpen}
+        setOpenModal={setModalOpen}
+        text="Livro adicionado com sucesso!"
+      />
     </div>
   );
 };

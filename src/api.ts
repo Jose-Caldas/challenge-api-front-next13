@@ -21,9 +21,10 @@ export const addBook = async (book: IBook): Promise<IBook> => {
   const newBook = await response.json();
   return newBook;
 };
+
 export const editBook = async (book: IBook): Promise<IBook> => {
-  const response = await fetch(`${baseUrl}/book/${book._id}`, {
-    method: "PATCH",
+  const response = await fetch(`${baseUrl}/books/${book._id}`, {
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
@@ -32,6 +33,7 @@ export const editBook = async (book: IBook): Promise<IBook> => {
   const updatedBook = await response.json();
   return updatedBook;
 };
+
 export const deleteBook = async (_id: string | undefined): Promise<void> => {
   await fetch(`${baseUrl}/books/${_id}`, {
     method: "DELETE",
