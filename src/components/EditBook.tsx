@@ -1,9 +1,10 @@
 import { editBook } from "@/api";
-import Modal from "@/components/Modal";
+import Message from "@/components/Message";
 import { IBook } from "@/types/book";
 import { useRouter } from "next/navigation";
 import React, { FormEventHandler, useState } from "react";
 import styles from "./AddBook.module.css";
+import Link from "next/link";
 
 interface EditBookProps {
   book: IBook;
@@ -69,15 +70,29 @@ const EditBook = ({ book }: EditBookProps) => {
             />
           </div>
         </div>
-        <button type="submit" onClick={() => setOpenModalEdit(true)}>
-          Atualizar livro
+        <button
+          className={styles.btn_update}
+          type="submit"
+          onClick={() => setOpenModalEdit(true)}
+        >
+          Update
         </button>
       </form>
-      <Modal
-        modalOpen={OpenModalEdit}
-        setOpenModal={setOpenModalEdit}
-        text="Livro atualizado com sucesso!"
-      />
+      <Message messageOpen={OpenModalEdit} setOpenMessage={setOpenModalEdit}>
+        <div className={styles.msg_container}>
+          <p className={styles.success_message}>Book updated successfully!</p>
+          <p>Go back to management books?</p>
+          <Link className={styles.link_success} href="/books">
+            Yes
+          </Link>
+          <button
+            className={styles.btn_success}
+            onClick={() => setOpenModalEdit(false)}
+          >
+            No
+          </button>
+        </div>
+      </Message>
     </div>
   );
 };

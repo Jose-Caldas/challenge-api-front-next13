@@ -11,7 +11,7 @@
 }
 
 .form_container label {
-  color: tomato;
+  color: #42b0f5;
 }
 
 .form_container input {
@@ -21,12 +21,80 @@
   padding: 1rem 0.5rem;
   font-size: 1rem;
   border: none;
+  color: #333;
 }
 
-.form_container button {
+.btn_add {
+  display: flex;
+  align-items: center;
   border: none;
-  background-color: tomato;
+  background-color: #42b0f5;
   color: #fff;
   padding: 1rem 3rem;
   border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.msg_container {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+.success_message {
+  color: #22a945;
+  text-align: center;
+  padding: 1rem;
+}
+
+.btn_success {
+  background-color: #eee;
+  color: #22a945;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn_success:hover {
+  background-color: #22a945;
+  color: #fff;
+}
+
+.link_success {
+  background-color: #eee;
+  color: #f54257;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: none;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+
+.link_success:hover {
+  background-color: #f54257;
+  color: #fff;
+}
+
+.btn_update {
+  background-color: #fff;
+  color: #42b0f5;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  border: 1px solid #42b0f5;
+}
+
+.btn_update:hover {
+  background-color: #42b0f5;
+  color: #fff;
 }

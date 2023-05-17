@@ -27,8 +27,10 @@ html {
 .nav li a {
   text-decoration: none;
   color: #333;
-  opacity: 0.8;
+  color: #42b0f5;
+  padding: 0.8rem 1rem;
+  transition: 0.3s ease-in-out;
 }
 .nav li a:hover {
-  opacity: 1;
+  text-decoration: underline;
 }

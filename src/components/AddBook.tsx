@@ -1,9 +1,11 @@
 "use client";
 import React, { FormEventHandler, useState } from "react";
-import Modal from "./Modal";
+import Message from "./Message";
 import { addBook } from "@/api";
 import { useRouter } from "next/navigation";
 import styles from "./AddBook.module.css";
+import Link from "next/link";
+import { AiOutlinePlus } from "react-icons/ai";
 
 type FormBookProps = {
   formTitle: string;
@@ -11,7 +13,7 @@ type FormBookProps = {
 
 const AddBook = ({ formTitle }: FormBookProps) => {
   const router = useRouter();
-  const [modalOpen, setModalOpen] = useState(false);
+  const [messageOpen, setMessageOpen] = useState(false);
   const [newTitleValue, setNewTitleValue] = useState<string>("");
   const [newAuthorValue, setNewAuthorValue] = useState<string>("");
   const [newIsbnValue, setNewIsbnValue] = useState<string>("");
@@ -68,13 +70,25 @@ const AddBook = ({ formTitle }: FormBookProps) => {
             />
           </div>
         </div>
-        <button onClick={() => setModalOpen(true)}>Adicionar</button>
+        <button className={styles.btn_add} onClick={() => setMessageOpen(true)}>
+          Add <AiOutlinePlus />
+        </button>
       </form>
-      <Modal
-        modalOpen={modalOpen}
-        setOpenModal={setModalOpen}
-        text="Livro adicionado com sucesso!"
-      />
+      <Message messageOpen={messageOpen} setOpenMessage={setMessageOpen}>
+        <div className={styles.msg_container}>
+          <p className={styles.success_message}>Book successfully added!</p>
+          <p>Add another?</p>
+          <button
+            className={styles.btn_success}
+            onClick={() => setMessageOpen(false)}
+          >
+            Yes
+          </button>
+          <Link className={styles.link_success} href="/books">
+            No
+          </Link>
+        </div>
+      </Message>
     </div>
   );
 };
