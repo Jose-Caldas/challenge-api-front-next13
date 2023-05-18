@@ -13,9 +13,9 @@ html {
 }
 
 .nav_container {
-  background-color: #fff;
-  padding: 1rem;
+  padding: 1.5rem 0;
   margin-bottom: 2rem;
+  background-color: #333;
 }
 
 .nav {
@@ -30,7 +30,10 @@ html {
   color: #42b0f5;
   padding: 0.8rem 1rem;
   transition: 0.3s ease-in-out;
+  font-weight: bold;
 }
 .nav li a:hover {
-  text-decoration: underline;
+  background-color: #42b0f5;
+  color: #fff;
+  border-radius: 4px;
 }

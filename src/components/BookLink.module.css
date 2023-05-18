@@ -8,12 +8,12 @@
   font-size: 1.5rem;
   padding: 1rem;
   border-radius: 4px;
-  border: 1px solid #42b0f5;
+  border: 1px solid #333;
   transition: 0.3s ease-in-out;
 }
 
 .link_container:hover {
-  background-color: #42b0f5;
+  background-color: #333;
   color: #fff;
 }
 
