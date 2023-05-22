@@ -1,18 +1,14 @@
 "use client";
 import React, { useState } from "react";
-import Message from "./Message";
+import Message from "../Message";
 import { addBook } from "@/api";
 import { useRouter } from "next/navigation";
-import styles from "./AddBook.module.css";
+import styles from "./AddNewBook.module.css";
 import Link from "next/link";
 import { AiOutlinePlus } from "react-icons/ai";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-
-type FormBookProps = {
-  formTitle: string;
-};
 
 const validationSchema = z.object({
   title: z
@@ -29,7 +25,7 @@ const validationSchema = z.object({
 });
 
 type ValidationSchema = z.infer<typeof validationSchema>;
-const AddBook = ({ formTitle }: FormBookProps) => {
+const AddNewBook = () => {
   const {
     register,
     handleSubmit,
@@ -53,7 +49,7 @@ const AddBook = ({ formTitle }: FormBookProps) => {
   return (
     <div className={styles.form_container}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h3>{formTitle}</h3>
+        <h1>Add New Book</h1>
         <div>
           <div>
             <label htmlFor="title">Title:</label>
@@ -100,7 +96,7 @@ const AddBook = ({ formTitle }: FormBookProps) => {
           >
             Yes
           </button>
-          <Link className={styles.link_success} href="/books">
+          <Link className={styles.link_success} href="/books/edit-book">
             No
           </Link>
         </div>
@@ -109,4 +105,4 @@ const AddBook = ({ formTitle }: FormBookProps) => {
   );
 };
 
-export default AddBook;
+export default AddNewBook;

@@ -5,10 +5,10 @@ import { FiEdit, FiTrash2 } from "react-icons/fi";
 import Link from "next/link";
 import { deleteBook, editBook, getAllBooks } from "@/api";
 import { useRouter } from "next/navigation";
-import Message from "./Message";
+import Message from "../Message";
 import { useState } from "react";
 
-const Book = ({ title, author, isbnNumber, _id }: IBook) => {
+const BookManagement = ({ title, author, isbnNumber, _id }: IBook) => {
   const router = useRouter();
   const [messageOpen, setMessageOpen] = useState(false);
   const [btnMsg, setBtnMsg] = useState(false);
@@ -85,4 +85,4 @@ const Book = ({ title, author, isbnNumber, _id }: IBook) => {
   );
 };
 
-export default Book;
+export default BookManagement;

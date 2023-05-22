@@ -1,20 +1,18 @@
 import { getAllBooks } from "@/api";
 import React from "react";
-import styles from "./Book.module.css";
-import Book from "@/components/Book";
-import BookLink from "@/components/BookLink";
+import styles from "./Edit.module.css";
+import BookManagement from "@/components/bookManagement";
 
-export default async function Books() {
+export default async function EditBook() {
   const books = await getAllBooks();
 
   return (
     <div className={styles.book_container}>
       <div className={styles.header}>
-        <h1>Book List:</h1>
-        <BookLink />
+        <h1>Book Management</h1>
       </div>
       {books.map((book) => (
-        <Book
+        <BookManagement
           key={book._id}
           title={book.title}
           author={book.author}

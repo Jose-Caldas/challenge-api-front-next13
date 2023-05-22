@@ -20,10 +20,14 @@ export default function RootLayout({
         <div className="nav_container">
           <ul className="nav">
             <li>
-              <Link href="/">Home</Link>
+              <Link href="/">All Books</Link>
+            </li>
+
+            <li>
+              <Link href="/books/edit-book">Edit Book</Link>
             </li>
             <li>
-              <Link href="/books">All Books</Link>
+              <Link href="/books/add-book">Add New Book</Link>
             </li>
           </ul>
         </div>

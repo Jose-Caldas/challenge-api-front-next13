@@ -1,0 +1,12 @@
+.bookList_container {
+  padding: 1rem 0;
+}
+
+.bookList_container ul {
+  list-style: none;
+}
+.bookList_container ul li {
+  margin-bottom: 0.5rem;
+  background-color: #fff;
+  padding: 0.5rem;
+}

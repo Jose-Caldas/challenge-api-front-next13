@@ -3,7 +3,7 @@ import Message from "@/components/Message";
 import { IBook } from "@/types/book";
 import { useRouter } from "next/navigation";
 import React, { FormEventHandler, useState } from "react";
-import styles from "./AddBook.module.css";
+import styles from "../components/addNewBook/AddNewBook.module.css";
 import Link from "next/link";
 
 interface EditBookProps {
@@ -12,7 +12,7 @@ interface EditBookProps {
 
 const EditBook = ({ book }: EditBookProps) => {
   const router = useRouter();
-  const [OpenModalEdit, setOpenModalEdit] = useState<boolean>(false);
+  const [OpenMessageEdit, setOpenMessageEdit] = useState<boolean>(false);
   const [titleEdit, setTitleEdit] = useState<string>(book.title);
   const [authorEdit, setAuthorEdit] = useState<string>(book.author);
   const [isbnEdit, setIsbnEdit] = useState<string | number>(book.isbnNumber);
@@ -34,7 +34,7 @@ const EditBook = ({ book }: EditBookProps) => {
   return (
     <div className={styles.form_container}>
       <form onSubmit={handleSubmit}>
-        <h3>Editar Livro</h3>
+        <h1 style={{ color: "#333" }}>Book Edit</h1>
         <div>
           <div>
             <label htmlFor="title">Title:</label>
@@ -73,21 +73,24 @@ const EditBook = ({ book }: EditBookProps) => {
         <button
           className={styles.btn_update}
           type="submit"
-          onClick={() => setOpenModalEdit(true)}
+          onClick={() => setOpenMessageEdit(true)}
         >
           Update
         </button>
       </form>
-      <Message messageOpen={OpenModalEdit} setOpenMessage={setOpenModalEdit}>
+      <Message
+        messageOpen={OpenMessageEdit}
+        setOpenMessage={setOpenMessageEdit}
+      >
         <div className={styles.msg_container}>
           <p className={styles.success_message}>Book updated successfully!</p>
           <p>Go back to management books?</p>
-          <Link className={styles.link_success} href="/books">
+          <Link className={styles.link_success} href="/books/edit-book">
             Yes
           </Link>
           <button
             className={styles.btn_success}
-            onClick={() => setOpenModalEdit(false)}
+            onClick={() => setOpenMessageEdit(false)}
           >
             No
           </button>
