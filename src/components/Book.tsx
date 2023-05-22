@@ -63,12 +63,18 @@ const Book = ({ title, author, isbnNumber, _id }: IBook) => {
             <h2>Actions</h2>
             <div className={styles.actions_opt}>
               <Link href={`/books/${_id}`}>
-                <FiEdit size={25} color="#42b0f5" cursor="pointer" />
+                <FiEdit
+                  size={25}
+                  color="#42b0f5"
+                  cursor="pointer"
+                  title="Edit"
+                />
               </Link>
               <FiTrash2
                 size={25}
                 color="#f54257"
                 cursor="pointer"
+                title="Delete"
                 onClick={() => setMessageOpen(true)}
               />
             </div>

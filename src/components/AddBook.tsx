@@ -1,73 +1,89 @@
 "use client";
-import React, { FormEventHandler, useState } from "react";
+import React, { useState } from "react";
 import Message from "./Message";
 import { addBook } from "@/api";
 import { useRouter } from "next/navigation";
 import styles from "./AddBook.module.css";
 import Link from "next/link";
 import { AiOutlinePlus } from "react-icons/ai";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 
 type FormBookProps = {
   formTitle: string;
 };
 
+const validationSchema = z.object({
+  title: z
+    .string()
+    .nonempty("Title is required!")
+    .min(3, { message: "Title must contain at least 3 characteres!" }),
+  author: z
+    .string()
+    .nonempty("Author is required!")
+    .min(3, { message: "Author must contain at least 3 characteres!" }),
+  isbnNumber: z
+    .string()
+    .min(3, { message: "ISBN must contain at least 3 characteres!" }),
+});
+
+type ValidationSchema = z.infer<typeof validationSchema>;
 const AddBook = ({ formTitle }: FormBookProps) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ValidationSchema>({
+    resolver: zodResolver(validationSchema),
+  });
   const router = useRouter();
   const [messageOpen, setMessageOpen] = useState(false);
-  const [newTitleValue, setNewTitleValue] = useState<string>("");
-  const [newAuthorValue, setNewAuthorValue] = useState<string>("");
-  const [newIsbnValue, setNewIsbnValue] = useState<string>("");
 
-  const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
-    e.preventDefault();
+  const onSubmit: SubmitHandler<ValidationSchema> = async (data) => {
     await addBook({
-      title: newTitleValue,
-      author: newAuthorValue,
-      isbnNumber: Number(newIsbnValue),
+      title: data.title,
+      author: data.author,
+      isbnNumber: Number(data.isbnNumber),
     });
-    setNewTitleValue("");
-    setNewAuthorValue("");
-    setNewIsbnValue("");
+
     router.refresh();
   };
 
   return (
     <div className={styles.form_container}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <h3>{formTitle}</h3>
         <div>
           <div>
             <label htmlFor="title">Title:</label>
             <input
-              type="tex"
-              name="title"
+              type="text"
               id="title"
               placeholder="New title..."
-              value={newTitleValue}
-              onChange={(e) => setNewTitleValue(e.target.value)}
+              {...register("title")}
             />
+            {errors.title && <p>{errors.title?.message}</p>}
           </div>
           <div>
             <label htmlFor="author">Author:</label>
             <input
-              type="tex"
-              name="author"
+              type="text"
               id="author"
               placeholder="New author..."
-              value={newAuthorValue}
-              onChange={(e) => setNewAuthorValue(e.target.value)}
+              {...register("author")}
             />
+            {errors.author && <p>{errors.author?.message}</p>}
           </div>
           <div>
-            <label htmlFor="isbn">ISBN:</label>
+            <label htmlFor="isbnNumber">ISBN:</label>
             <input
               type="number"
-              name="isbn"
-              id="isbn"
+              id="isbnNumber"
               placeholder="New ISBN..."
-              value={newIsbnValue}
-              onChange={(e) => setNewIsbnValue(e.target.value)}
+              {...register("isbnNumber")}
             />
+            {errors.isbnNumber && <p>{errors.isbnNumber?.message}</p>}
           </div>
         </div>
         <button className={styles.btn_add} onClick={() => setMessageOpen(true)}>
