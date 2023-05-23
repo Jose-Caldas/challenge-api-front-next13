@@ -1,6 +1,6 @@
 import { IBook } from "./types/book";
 
-const baseUrl = "https://challenge-api-8lzp.onrender.com";
+const baseUrl = "https://api-challenge-p5mb.onrender.com";
 
 export const getAllBooks = async (): Promise<IBook[]> => {
   const response = await fetch(`${baseUrl}/books`, {
