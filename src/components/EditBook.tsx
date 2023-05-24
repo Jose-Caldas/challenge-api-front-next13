@@ -83,17 +83,21 @@ const EditBook = ({ book }: EditBookProps) => {
         setOpenMessage={setOpenMessageEdit}
       >
         <div className={styles.msg_container}>
-          <p className={styles.success_message}>Book updated successfully!</p>
-          <p>Go back to management books?</p>
-          <Link className={styles.link_success} href="/books/edit-book">
-            Yes
-          </Link>
-          <button
-            className={styles.btn_success}
-            onClick={() => setOpenMessageEdit(false)}
-          >
-            No
-          </button>
+          <div className={styles.success_message}>
+            <p className={styles.success_message}>Book updated successfully!</p>
+            <div className={styles.add_again}>
+              <p>Go back to management books?</p>
+              <Link className={styles.btn_update} href="/books/edit-book">
+                Yes
+              </Link>
+              <button
+                className={styles.btn_update}
+                onClick={() => setOpenMessageEdit(false)}
+              >
+                No
+              </button>
+            </div>
+          </div>
         </div>
       </Message>
     </div>

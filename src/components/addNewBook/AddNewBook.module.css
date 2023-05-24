@@ -53,44 +53,21 @@
 }
 
 .success_message {
-  color: #22a945;
-  text-align: center;
   padding: 1rem;
-}
-
-.btn_success {
-  background-color: #eee;
   color: #22a945;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 4px;
-  transition: 0.3s ease-in-out;
-  cursor: pointer;
-  font-size: 1rem;
 }
 
-.btn_success:hover {
-  background-color: #22a945;
-  color: #fff;
+.success_message p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.link_success {
-  background-color: #eee;
-  color: #f54257;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  border: none;
-  text-decoration: none;
-  transition: 0.3s ease-in-out;
-}
-
-.link_success:hover {
-  background-color: #f54257;
-  color: #fff;
+.success_message p span {
+  margin-left: 1rem;
 }
 
 .btn_update {
-  background-color: #fff;
   color: #42b0f5;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -99,9 +76,24 @@
   cursor: pointer;
   transition: 0.3s ease-in-out;
   border: 1px solid #333;
+  text-decoration: none;
 }
 
 .btn_update:hover {
   background-color: #333;
   color: #fff;
+}
+
+.field_error {
+  color: #f54257;
+  margin-bottom: 0.5rem;
+}
+
+.add_again {
+  background-color: #eeee;
+  display: flex;
+  padding: 0.5rem 1rem;
+  color: #333;
+  margin-top: 1rem;
+  gap: 1rem;
 }
