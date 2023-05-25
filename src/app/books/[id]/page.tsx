@@ -1,5 +1,5 @@
 "use client";
-import { getAllBooks } from "@/api";
+import { getBook } from "@/api";
 import EditBook from "@/components/EditBook";
 
 interface BookProps {
@@ -9,22 +9,11 @@ interface BookProps {
 }
 
 export default async function EditBookPage({ params }: BookProps) {
-  const books = await getAllBooks();
-  const book = books.filter((book) => book._id === params.id);
+  const book = await getBook(params.id);
 
   return (
     <div>
-      {book.map(({ _id, title, author, isbnNumber }) => (
-        <EditBook
-          key={_id}
-          book={{
-            _id,
-            title,
-            author,
-            isbnNumber,
-          }}
-        />
-      ))}
+      <EditBook book={{ ...book }} />
     </div>
   );
 }

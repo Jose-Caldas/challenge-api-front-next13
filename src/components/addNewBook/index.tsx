@@ -113,7 +113,7 @@ const AddNewBook = () => {
             {message.type === "success" ? (
               <>
                 <p>
-                  {message.text}{" "}
+                  {message.text}
                   <span>
                     <BsCheck2Circle size={25} />
                   </span>

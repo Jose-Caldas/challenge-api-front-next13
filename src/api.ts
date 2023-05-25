@@ -10,6 +10,12 @@ export const getAllBooks = async (): Promise<IBook[]> => {
   return books;
 };
 
+export const getBook = async (_id: string): Promise<IBook> => {
+  const response = await fetch(`${baseUrl}/books/${_id}`);
+  const book = await response.json();
+  return book;
+};
+
 export const addBook = async (book: IBook): Promise<IBook> => {
   const response = await fetch(`${baseUrl}/books`, {
     method: "POST",
